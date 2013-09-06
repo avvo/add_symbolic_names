@@ -58,3 +58,7 @@ class User < ActiveRecord::Base
   scope :imported, -> { where(user_creation_method_id: UserCreationMethod::IMPORT) }
 end
 ```
+
+## Credit
+
+[bvandenbos](http://github.com/bvandenbos) actually wrote this 6+ years ago. We think this could be useful for others.
