@@ -4,7 +4,7 @@ module AddSymbolicNames
       def self.define_constants(klass, opts)
         symbolic_name_attr = opts.fetch(:symbolic_name_attrib, :symbolic_name)
         value_attr = opts.fetch(:value_attrib, :id)
-        klass.each do |record|
+        klass.all.each do |record|
           symbolic_name = record.send(symbolic_name_attrib)
           value = record.send(value_attr)
 
