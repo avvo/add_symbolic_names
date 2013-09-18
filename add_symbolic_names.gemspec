@@ -16,8 +16,7 @@ Gem::Specification.new do |s|
   s.author = "Ben VandenBos"
   s.email = "bvandenbos@gmail.com"
   s.homepage = "http://github.com/avvo/add_symbolic_names"
-  s.has_rdoc = true
 
-  s.files = `git ls-files`.split("\n")
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir.glob('test/*_test.rb')
 end

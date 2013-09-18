@@ -1,4 +1,4 @@
-# AddSymbolicNames
+# AddSymbolicNames [![Build Status](https://travis-ci.org/avvo/add_symbolic_names.png?branch=master)](https://travis-ci.org/avvo/add_symbolic_names)
 
 ActiveRecord plugin for creating constants from a domain table
 
@@ -24,10 +24,35 @@ end
 
 ## Configuration
 
-The `add_symbolic_names` method takes an options hash with 2 possible values:
+The `add_symbolic_names` method takes an options hash with 3 possible values:
 
 * `symbolic_name_attrib` - the name of the column/attribute to use when defining the constant name
 * `value_attrib` - the name of the column/attribute to use for the value of the constant
+* `store` - how to load the data
+
+## Stores
+
+There are 2 data stores available
+
+### ActiveRecord
+
+ActiveRecord is the default data store.  It loads all records, iterating through and defining constants with a name of the `symbolic_name_attrib` option with a value of the `value_attrib` option.
+
+```
+…
+add_symbolic_names store: :active_record, 
+                   symbolic_name_attrib: :some_column, 
+                   value_attrib: :another_column
+```
+
+### Yaml
+
+Yaml store loads from your db/domain folder a yaml file with the pluralized, demodulized class name. (User => users.yml)
+
+```
+…
+add_symbolic_names store: :yaml
+```
 
 ## Example
 
