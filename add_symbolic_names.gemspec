@@ -1,3 +1,5 @@
+$:.push File.expand_path("../lib", __FILE__)
+
 # Provide a simple gemspec so you can easily use your enginex
 # project in your rails apps through git.
 
@@ -9,6 +11,7 @@ Gem::Specification.new do |s|
   s.description = 'ActiveRecord plugin for creating constants from a domain table'
   s.summary = 'ActiveRecord plugin for creating constants from a domain table'
   s.add_dependency "activerecord", ">= 3.2.0"
+  s.add_development_dependency "sqlite3"
 
   s.author = "Ben VandenBos"
   s.email = "bvandenbos@gmail.com"
