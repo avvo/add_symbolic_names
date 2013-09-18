@@ -1,0 +1,7 @@
+---
+- id: 1
+  name: Unknown
+  symbolic_name: UNKNOWN
+- id: 2
+  name: Admin
+  symbolic_name: ADMIN
