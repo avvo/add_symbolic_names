@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.summary = 'ActiveRecord plugin for creating constants from a domain table'
   s.add_dependency "activerecord", ">= 3.2.0"
   s.add_development_dependency "sqlite3"
+  s.license = "MIT"
 
   s.author = "Ben VandenBos"
   s.email = "bvandenbos@gmail.com"
