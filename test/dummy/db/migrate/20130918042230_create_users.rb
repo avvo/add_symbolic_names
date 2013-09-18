@@ -5,14 +5,14 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
     end
 
-    execute %{ INSERT INTO `user_creation_methods` (`symbolic_name`, `name`) VALUES ("EMAIL", "Email"), ("REGISTER", "Register"), ("IMPORT", "Import") }
+    execute %{ INSERT INTO user_creation_methods (symbolic_name, name) VALUES ("EMAIL", "Email"), ("REGISTER", "Register"), ("IMPORT", "Import") }
 
     create_table :states do |t|
       t.string :name
       t.string :abbr
     end
 
-    execute %{ INSERT INTO `states` (`name`, `abbr`) VALUES ("Washington", "WA"), ("Oregon", "OR"), ("California", "CA") }
+    execute %{ INSERT INTO states (name, abbr) VALUES ("Washington", "WA"), ("Oregon", "OR"), ("California", "CA") }
 
     create_table :users do |t|
       t.string :name
