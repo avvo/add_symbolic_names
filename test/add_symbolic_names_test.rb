@@ -19,4 +19,22 @@ class AddSymbolicNamesTest < ActiveSupport::TestCase
     assert_equal 2, User::ADMIN
   end
 
+  test "generates a yaml file name based off of the class name" do
+    class ClassWithoutModule
+    end
+    yaml_store = AddSymbolicNames::Store::Yaml
+
+    assert_equal "#{yaml_store.folder}/#{self.class.name.underscore}/class_without_modules.yml", yaml_store.yaml_file_name(ClassWithoutModule)
+  end
+
+  test "generates a yaml file name based off of the class name with modules" do
+    module SomeModule
+      class ClassWithModule
+      end
+    end
+    yaml_store = AddSymbolicNames::Store::Yaml
+
+    assert_equal "#{yaml_store.folder}/#{self.class.name.underscore}/some_module/class_with_modules.yml", yaml_store.yaml_file_name(SomeModule::ClassWithModule)
+  end
+
 end
